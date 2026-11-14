@@ -7,6 +7,15 @@
 #include "proc.h"
 #include "vm.h"
 
+uint64 sys_getpinfo(void){
+  uint64 addr;
+  int max;
+  argaddr(0, &addr);
+  argint(1, &max);
+
+  return getpinfo(addr, max);
+}
+
 uint64
 sys_exit(void)
 {
